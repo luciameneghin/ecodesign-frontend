@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Ecodesign Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Questo è il frontend del progetto **Ecodesign**, un'applicazione web che permette di visualizzare una selezione di mobili eco-sostenibili.  
+I dati provengono da un backend Symfony e vengono mostrati attraverso una UI React dinamica e responsiva.
 
-## Available Scripts
+## 🔗 API Backend
 
-In the project directory, you can run:
+L'app si connette a un'API Symfony ospitata localmente:
+GET http://127.0.0.1:8000/api/furnitures
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🖼️ Funzionalità
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Visualizza tutti i mobili presenti nel database
+- Mostra nome, immagine, materiale, colore, prezzo e sostenibilità (`isGreen`)
+- Caricamento automatico tramite `fetch` con `useEffect`
+- UI minimale con lista responsive
 
-### `npm test`
+## ⚙️ Tecnologie utilizzate
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+- JavaScript (ES6+)
+- HTML / CSS (base o Tailwind, se integrato)
+- Symfony + MySQL (backend)
 
-### `npm run build`
+## 🚀 Come avviare il progetto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clona la repo (o apri la cartella)
+2. Installa le dipendenze:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Avvia il server React: npm start
 
-### `npm run eject`
+Assicurati che il backend Symfony sia attivo all’indirizzo http://127.0.0.1:8000.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Prossimi sviluppi
+Filtri per materiale, colore, eco-sostenibilità
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Dettaglio del singolo mobile
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Aggiunta a preferiti
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Versione mobile ottimizzata
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
