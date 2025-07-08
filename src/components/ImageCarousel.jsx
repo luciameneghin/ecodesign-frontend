@@ -24,7 +24,7 @@ const ImageCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full h-[500px] overflow-hidden relative">
+    <div className="w-full h-[600px] overflow-hidden relative">
       <img
         src={images[currentIndex]}
         alt={`Slide ${currentIndex}`}
