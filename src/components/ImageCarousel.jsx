@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
 const images = [
   '/images/carousel/carousel-1.jpg',
@@ -35,14 +35,14 @@ const ImageCarousel = () => {
         onClick={() => setCurrentIndex((currentIndex - 1 + images.length) % images.length)}
         className="absolute top-1/2 left-4 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition"
       >
-        <BsChevronCompactLeft size={24} />
+        <FaChevronLeft size={24} />
       </button>
       {/* Freccia destra */}
       <button
         onClick={() => setCurrentIndex((currentIndex + 1) % images.length)}
         className="absolute top-1/2 right-4 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition"
       >
-        <BsChevronCompactRight size={24} />
+        <FaChevronRight size={24} />
       </button>
 
 
@@ -50,7 +50,7 @@ const ImageCarousel = () => {
         onClick={() => setCurrentIndex((currentIndex + 1) % images.length)}
         className="absolute top-1/2 right-4 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition"
       >
-        <BsChevronCompactRight size={24} />
+        <FaChevronRight size={24} />
       </button>
 
       {/* Pallini sottostanti */}

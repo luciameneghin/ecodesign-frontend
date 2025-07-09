@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css'; // Importa il CSS di base per Swiper
-import 'swiper/css/navigation'; // Importa il CSS per la navigazione
-import 'swiper/css/pagination'; // Importa il CSS per la paginazione
-import '../styles/FurnituresCarousel.css'; // Puoi aggiungere il tuo CSS personalizzato
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import '../styles/FurnituresCarousel.css';
 
 const App = () => {
   const [furnitures, setFurnitures] = useState([]);
 
   useEffect(() => {
-    // Simula una richiesta al backend per ottenere i dati
     fetch('http://localhost:8000/api/furnitures')
       .then((response) => response.json())
       .then((data) => setFurnitures(data))
@@ -19,11 +19,12 @@ const App = () => {
   return (
     <div className="App">
       <Swiper
+        modules={[Navigation, Pagination]}
         spaceBetween={20}
         slidesPerView={5}
         loop={true}
         pagination={{ clickable: true }}
-        navigation={true}
+
       >
         {furnitures.map((furniture) => (
           <SwiperSlide key={furniture.id}>
@@ -46,6 +47,9 @@ const App = () => {
 };
 
 export default App;
+
+
+
 
 
 
