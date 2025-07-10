@@ -3,7 +3,7 @@ import React from 'react'
 const HomeInfoSection = () => {
   return (
     <>
-      <div className='bg-[#eeedeb] py-20'>
+      <div className='bg-[#F7F7F2] py-20'>
         <div className='flex container mx-auto grid-cols-2 gap-40 pr-20 items-center'>
           <div className='mx-20'>
             <h1 className='font-bold text-3xl mb-5'>Milano Design Week 2025</h1>
@@ -27,7 +27,7 @@ const HomeInfoSection = () => {
         </div>
       </div>
 
-      <div className='bg-[#e0ccbe] py-20'>
+      <div className='bg-[#D6AE9E] py-20'>
         <div className='flex container mx-auto grid-cols-2 gap-40 items-center'>
           <div className='mx-20'>
             <img src="/images/InfoSection/legno-lab-cover.png" alt="Copertina rivista legnoLab" className='ml-20' />

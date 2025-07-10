@@ -5,22 +5,22 @@ import { FaInstagram } from "react-icons/fa6";
 const Footer = () => {
   return (
     <div>
-      <div className='flex justify-center gap-20'>
-        <div className='bg-red-300 grid-cols-2'>
-          <div>
-            <h3 className='uppercase'>Il tuo account</h3>
+      <div className='flex justify-center gap-[150px] bg-[#65705C] bg-opacity-10'>
+        <div className='bg-[#D6AE9E] grid-cols-2 my-10 py-[50px] px-[50px]'>
+          <div className='mb-10'>
+            <h3 className='uppercase border-b border-white w-[450px] text-white mb-5'>Il tuo account</h3>
             <p>Informazioni personali</p>
             <p>I miei ordini</p>
           </div>
 
-          <div>
-            <h3 className='uppercase'>Servizio clienti</h3>
+          <div className='mb-10'>
+            <h3 className='uppercase border-b border-white text-white mb-5 '>Servizio clienti</h3>
             <p>Spedizioni</p>
             <p>Pagamento sicuro</p>
             <p>Resi</p>
           </div>
-
-          <div className='flex'>
+          <div className='border-b border-white'></div>
+          <div className='flex my-10 justify-around text-5xl text-white'>
             <FaCcMastercard />
             <FaPaypal />
             <FaCcVisa />
@@ -28,30 +28,39 @@ const Footer = () => {
 
         </div>
 
-        <div className='bg-blue-400'>
-          <h2>I nostri Showroom</h2>
+
+        <div className='my-20'>
+          <div className='mb-10'>
+            <h2 className='text-3xl font-thin'>I nostri Showroom</h2>
+          </div>
           <div className='flex grid-cols-2 gap-10'>
             <div>
-              <h3 className='text-xl uppercase'>Roma</h3>
+              <h3 className='text-xl uppercase border-b border-black mb-4'>Roma</h3>
               <p>Via della Carbonara, 10/Z</p>
               <p>00199 Roma</p>
               <p>tel +39 09 1234567</p>
               <p>roma@ecodesign.it</p>
+
             </div>
+
             <div>
-              <h3 className='text-xl uppercase'>Milano</h3>
+              <h3 className='text-xl uppercase border-b border-black mb-4'>Milano</h3>
               <p>Via della Cotoletta, 50/G</p>
               <p>20159 Milano</p>
               <p>tel +39 02 9876543</p>
               <p>milano@ecodesign.it</p>
             </div>
-
+          </div>
+          <div className='flex mt-[60px] justify-around'>
+            <img src="/images/Footer/iso-2-1-logo-svgrepo-com.svg" alt="iso" className='w-20' />
+            <img src="/images/Footer/logo-vero-legno-verde.svg" alt="" className='w-20' />
+            <img src="/images/Footer/made-in-italy-icon.svg" alt="" className='w-20' />
           </div>
         </div>
       </div>
 
-      <footer className="w-full bg-white">
-        <div className="container mx-auto  border-b border-gray-400">
+      <footer className='mt-20'>
+        <div className="container mx-auto border-b border-gray-400">
           <h2 className="relative w-max font-bold uppercase text-sm pt-8">
             Informazioni
             {/* <span className="absolute bottom-0 left-0 h-px w-full bg-neutral-400" /> */}
