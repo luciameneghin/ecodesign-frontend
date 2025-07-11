@@ -1,17 +1,17 @@
 .App {
   font-family: Arial, sans-serif;
-  text-align: center;
+  /* text-align: center; */
   padding: 20px;
 }
 
-.carousel-slide-content {
+/* .carousel-slide-content {
   text-align: center;
-}
+} */
 
 .carousel-image {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+  width: 250px;
+  height: 100%;
+  object-fit: contain;
 }
 
 .carousel-image:hover {
@@ -33,14 +33,14 @@
   font-weight: 300;
 }
 
-.swiper-button-next,
+/* .swiper-button-next,
 .swiper-button-prev {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border-radius: 50%;
-}
+} */
 
-.swiper-pagination-bullet {
+/* .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: #ccc;
@@ -50,4 +50,4 @@
 
 .swiper-pagination-bullet-active {
   background-color: #B4654A;
-}
+} */

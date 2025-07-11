@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/FurnituresCarousel.css';
 
 const App = () => {
   const [furnitures, setFurnitures] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 15;
+
+  const listTopRef = useRef();
 
   useEffect(() => {
     fetch('http://localhost:8000/api/furnitures')
@@ -16,18 +15,31 @@ const App = () => {
       .catch((error) => console.error('Error fetching furnitures:', error));
   }, []);
 
-  return (
-    <div className="App">
-      <Swiper
-        modules={[Navigation, Pagination]}
-        spaceBetween={20}
-        slidesPerView={5}
-        loop={true}
-        pagination={{ clickable: true }}
+  useEffect(() => {
+    if (listTopRef.current) {
+      listTopRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [currentPage]);
 
-      >
-        {furnitures.map((furniture) => (
-          <SwiperSlide key={furniture.id}>
+  //Calcolo paginazione
+  const totalPages = Math.ceil(furnitures.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = furnitures.slice(indexOfFirstItem, indexOfLastItem);
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1)
+  }
+
+  return (
+    <>
+      <div ref={listTopRef} className="App grid grid-cols-5 gap-10 scroll-mt-[100px]">
+        {currentItems.map((furniture) => (
+          <div key={furniture.id}>
             <div className="carousel-slide-content">
               <img
                 src={`http://localhost:8000${furniture.image}`}
@@ -39,10 +51,27 @@ const App = () => {
                 <p>{furniture.price}.00 €</p>
               </div>
             </div>
-          </SwiperSlide>
+          </div>
         ))}
-      </Swiper>
-    </div>
+      </div>
+      <div>
+        {/* Paginazione */}
+        <div className='flex justify-center'>
+          <div className='border border-1'>
+            <button className='px-5 border-r' onClick={handlePrevPage} disabled={currentPage === 1}>
+              &larr;
+            </button>
+            <span className='px-10'>
+              {currentPage} di {totalPages}
+            </span>
+            <button className='px-5 border-l' onClick={handleNextPage} disabled={currentPage === totalPages}>
+              &rarr;
+            </button>
+
+          </div>
+        </div>
+      </div >
+    </>
   );
 };
 
