@@ -8,10 +8,10 @@ const Navbar = () => {
         <img src="/images/logo-con-nome.png" alt="Eco-design Logo" className='h-20' />
       </div>
       <ul className='flex gap-6'>
-        <li><Link to='/' className="hover:text-green-300 transition text-white">Home</Link></li>
-        <li><Link to='/prodotti' className="hover:text-green-300 transition text-white">Prodotti</Link></li>
-        <li><Link to='/chi-siamo' className="hover:text-green-300 transition text-white">Chi siamo</Link></li>
-        <li><Link to='/contatti' className="hover:text-green-300 transition text-white">Contatti</Link></li>
+        <li><Link to='/' className="hover:text-[#5ED34F] transition text-white">Home</Link></li>
+        <li><Link to='/prodotti' className="hover:text-[#5ED34F] transition text-white">Prodotti</Link></li>
+        <li><Link to='/chi-siamo' className="hover:text-[#5ED34F] transition text-white">Chi siamo</Link></li>
+        <li><Link to='/contatti' className="hover:text-[#5ED34F] transition text-white">Contatti</Link></li>
       </ul>
     </nav>
   )

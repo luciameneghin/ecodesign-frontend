@@ -15,21 +15,30 @@
 }
 
 .carousel-image:hover {
-  border: 2px solid rgb(238, 167, 144);
+  border: 2px solid #B4654A;
 }
 
 .carousel-info {
   padding: 10px 0 50px;
+  text-align: center;
 }
 
 .carousel-info h3 {
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: 500;
   margin-bottom: 10px;
 }
 
+.carousel-info h3:hover {
+  border-bottom: 1px solid black;
+
+  cursor: pointer;
+}
+
 .carousel-info p {
-  font-size: 15px;
+  font-size: 16px;
   color: #5ED34F;
+  font-style: italic;
   font-weight: 300;
 }
 

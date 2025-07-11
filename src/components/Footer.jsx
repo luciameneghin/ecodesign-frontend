@@ -9,21 +9,21 @@ const Footer = () => {
         <div className='bg-[#D6AE9E] grid-cols-2 my-10 py-[50px] px-[50px]'>
           <div className='mb-10'>
             <h3 className='uppercase border-b border-white w-[450px] text-white mb-5'>Il tuo account</h3>
-            <p>Informazioni personali</p>
-            <p>I miei ordini</p>
+            <p className='hover:text-[#65705C] cursor-pointer'>Informazioni personali</p>
+            <p className='hover:text-[#65705C] cursor-pointer'>I miei ordini</p>
           </div>
 
           <div className='mb-10'>
             <h3 className='uppercase border-b border-white text-white mb-5 '>Servizio clienti</h3>
-            <p>Spedizioni</p>
-            <p>Pagamento sicuro</p>
-            <p>Resi</p>
+            <p className='hover:text-[#65705C] cursor-pointer'>Spedizioni</p>
+            <p className='hover:text-[#65705C] cursor-pointer'>Pagamento sicuro</p>
+            <p className='hover:text-[#65705C] cursor-pointer'>Resi</p>
           </div>
           <div className='border-b border-white'></div>
           <div className='flex my-10 justify-around text-5xl text-white'>
-            <FaCcMastercard />
-            <FaPaypal />
-            <FaCcVisa />
+            <FaCcMastercard className='hover:text-[#65705C] cursor-pointer' />
+            <FaPaypal className='hover:text-[#65705C] cursor-pointer' />
+            <FaCcVisa className='hover:text-[#65705C] cursor-pointer' />
           </div>
 
         </div>
@@ -71,27 +71,27 @@ const Footer = () => {
         <div className="container mx-auto px-4 md:px-10">
           <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-sm md:text-base">
             <div className="flex items-start space-x-6 text-2xl md:text-3xl">
-              <FaFacebookF />
-              <FaInstagram />
-              <FaLinkedinIn />
+              <FaFacebookF className='hover:text-[#5ED34F] cursor-pointer' />
+              <FaInstagram className='hover:text-[#5ED34F] cursor-pointer' />
+              <FaLinkedinIn className='hover:text-[#5ED34F] cursor-pointer' />
             </div>
 
             <div className="space-y-1">
-              <p>Lavora con noi</p>
-              <p>Chi siamo</p>
-              <p>Contattaci</p>
+              <p className='hover:text-[#5ED34F] cursor-pointer'>Lavora con noi</p>
+              <p className='hover:text-[#5ED34F] cursor-pointer'>Chi siamo</p>
+              <p className='hover:text-[#5ED34F] cursor-pointer'>Contattaci</p>
             </div>
 
             <div className="space-y-1">
-              <p>Termini e condizioni</p>
-              <p>Privacy policy</p>
-              <p>Cookie policy</p>
+              <p className='hover:text-[#5ED34F] cursor-pointer'>Termini e condizioni</p>
+              <p className='hover:text-[#5ED34F] cursor-pointer'>Privacy policy</p>
+              <p className='hover:text-[#5ED34F] cursor-pointer'>Cookie policy</p>
             </div>
 
             <div className="space-y-1">
-              <p>Politica per la Parità di genere</p>
-              <p>Politica aziendale integrata</p>
-              <p>Politica aziendale conforme FSC</p>
+              <p className='hover:text-[#5ED34F] cursor-pointer'>Politica per la Parità di genere</p>
+              <p className='hover:text-[#5ED34F] cursor-pointer'>Politica aziendale integrata</p>
+              <p className='hover:text-[#5ED34F] cursor-pointer'>Politica aziendale conforme FSC</p>
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ const Footer = () => {
         <div className="container mx-auto">
           <hr className="my-8 border-neutral-400" />
           <p className="text-center text-xs md:text-sm text-neutral-600 pb-8">
-            Boiserie Riva srl Via Nemorense, 37/C, 00199 Roma | Capitale Sociale i.v. € 64.360,00 REA n° 867380 P.IVA e C.F. 05229581003<br />
+            Ecodesign srl<br />
             Copyright © 2024 | All rights reserved
           </p>
         </div>
