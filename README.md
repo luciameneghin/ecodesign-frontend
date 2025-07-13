@@ -16,16 +16,20 @@ GET http://127.0.0.1:8000/api/furnitures
 - Caricamento automatico tramite `fetch` con `useEffect`
 - UI minimale con lista responsive
 
-## ⚙️ Tecnologie utilizzate
+## 🏠 Tecnologie utilizzate
 
 - React
 - JavaScript (ES6+)
 - HTML / CSS (base o Tailwind)
 - PHP + Symfony + MySQL (backend)
 
-:house: Homepage
+## 👀 Dai un'occhiata 
+
+🏡 Homepage
 <img width="1912" height="4919" alt="Home-ecodesign" src="https://github.com/user-attachments/assets/1f27bea1-68c5-4252-b18a-3f4a1fa73f06" />
 
-🛋️ Pagina di dettaglio del prodotto (:construction: work in progress... :construction_worker:
+
+
+🛋️ Pagina di dettaglio del prodotto (🚧 work in progress... 👷)
 <img width="1912" height="2809" alt="ProductDetail-page-ecodesign" src="https://github.com/user-attachments/assets/2dd2247d-c760-43ed-925c-b7d7fba86533" />
 
