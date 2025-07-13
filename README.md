@@ -20,26 +20,12 @@ GET http://127.0.0.1:8000/api/furnitures
 
 - React
 - JavaScript (ES6+)
-- HTML / CSS (base o Tailwind, se integrato)
-- Symfony + MySQL (backend)
+- HTML / CSS (base o Tailwind)
+- PHP + Symfony + MySQL (backend)
 
-## 🚀 Come avviare il progetto
+:house: Homepage
+<img width="1912" height="4919" alt="Home-ecodesign" src="https://github.com/user-attachments/assets/1f27bea1-68c5-4252-b18a-3f4a1fa73f06" />
 
-1. Clona la repo (o apri la cartella)
-2. Installa le dipendenze:
-
-npm install
-
-Avvia il server React: npm start
-
-Assicurati che il backend Symfony sia attivo all’indirizzo http://127.0.0.1:8000.
-
-Prossimi sviluppi
-Filtri per materiale, colore, eco-sostenibilità
-
-Dettaglio del singolo mobile
-
-Aggiunta a preferiti
-
-Versione mobile ottimizzata
+🛋️ Pagina di dettaglio del prodotto (:construction: work in progress... :construction_worker:
+<img width="1912" height="2809" alt="ProductDetail-page-ecodesign" src="https://github.com/user-attachments/assets/2dd2247d-c760-43ed-925c-b7d7fba86533" />
 
