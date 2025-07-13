@@ -36,7 +36,7 @@ const Footer = () => {
           <div className='flex grid-cols-2 gap-10'>
             <div>
               <h3 className='text-xl uppercase border-b border-black mb-4'>Roma</h3>
-              <p>Via della Carbonara, 10/Z</p>
+              <p className='hover:text-[#1675FF] hover:border-b border-[#1675FF] hover:cursor-pointer'>Via della Carbonara, 10/Z</p>
               <p>00199 Roma</p>
               <p>tel +39 09 1234567</p>
               <p>roma@ecodesign.it</p>
@@ -45,7 +45,7 @@ const Footer = () => {
 
             <div>
               <h3 className='text-xl uppercase border-b border-black mb-4'>Milano</h3>
-              <p>Via della Cotoletta, 50/G</p>
+              <p className='hover:text-[#1675FF] hover:border-b border-[#1675FF] hover:cursor-pointer'>Via della Cotoletta, 50/G</p>
               <p>20159 Milano</p>
               <p>tel +39 02 9876543</p>
               <p>milano@ecodesign.it</p>

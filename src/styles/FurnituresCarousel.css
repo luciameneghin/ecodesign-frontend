@@ -1,12 +1,13 @@
-.App {
-  font-family: Arial, sans-serif;
+.FurnituresCarousel {
+  /* font-family: Arial, sans-serif; */
   /* text-align: center; */
   padding: 20px;
 }
 
-/* .carousel-slide-content {
+.carousel-slide-content {
   text-align: center;
-} */
+  cursor: pointer;
+}
 
 .carousel-image {
   width: 250px;

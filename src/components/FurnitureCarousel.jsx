@@ -1,19 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useFurnitures } from '../context/FurnituresContext';
+import { useNavigate } from 'react-router-dom';
 import '../styles/FurnituresCarousel.css';
 
-const App = () => {
-  const [furnitures, setFurnitures] = useState([]);
+const FurnituresCarousel = () => {
+  const { furnitures } = useFurnitures();
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 15;
 
   const listTopRef = useRef();
 
-  useEffect(() => {
-    fetch('http://localhost:8000/api/furnitures')
-      .then((response) => response.json())
-      .then((data) => setFurnitures(data))
-      .catch((error) => console.error('Error fetching furnitures:', error));
-  }, []);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (listTopRef.current) {
@@ -35,12 +33,16 @@ const App = () => {
     if (currentPage < totalPages) setCurrentPage((prev) => prev + 1)
   }
 
+  const handleClick = (id) => {
+    navigate(`/furniture/${id}`)
+  }
+
   return (
     <>
       <div ref={listTopRef} className="App grid grid-cols-5 gap-10 scroll-mt-[100px]">
         {currentItems.map((furniture) => (
           <div key={furniture.id}>
-            <div className="carousel-slide-content">
+            <div className="carousel-slide-content" onClick={() => handleClick(furniture.id)}>
               <img
                 src={`http://localhost:8000${furniture.image}`}
                 alt={furniture.name}
@@ -75,7 +77,7 @@ const App = () => {
   );
 };
 
-export default App;
+export default FurnituresCarousel;
 
 
 
