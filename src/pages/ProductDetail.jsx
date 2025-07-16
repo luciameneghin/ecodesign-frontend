@@ -23,7 +23,10 @@ const ProductDetail = () => {
   useEffect(() => {
     fetch(`http://localhost:8000/api/furnitures/furniture/${id}`)
       .then((response) => response.json())
-      .then((data) => setFurniture(data))
+      .then((data) => {
+        console.log(data)
+        setFurniture(data)
+      })
       .catch((error) => console.error('Error fetching furniture:', error));
   }, [id]);
 
@@ -48,17 +51,17 @@ const ProductDetail = () => {
       <Navbar />
       <div className='container py-10 flex mx-auto justify-center gap-10'>
         <div>
-          <div className='flex'>
+          <div>
             <h1 className='text-3xl font-bold'>{furniture.name}</h1>
-          </div>
-          <div className='flex items-center'>
             <p className='font-thin'>{furniture.category}</p>
           </div>
-          <img src={`http://localhost:8000/${furniture.image}`} alt={furniture.name} className='w-[600px] h-auto object-contain my-6' />
+          <div>
+            <img src={`http://localhost:8000/${furniture.image}`} alt={furniture.name} className='w-[600px] h-auto object-contain my-6' />
+          </div>
         </div>
         <div className='w-[20%]'>
           <p className='font-bold text-3xl flex justify-end text-[#5ED34F]'>{furniture.price} €</p>
-          <div className='my-20'>
+          <div className='my-10'>
             <h3 className='font-semibold text-[#B4654A]'>Descrizione</h3>
             <p className='mt-4'>{furniture.description}</p>
             <div className='my-10 font-thin'>
@@ -68,6 +71,18 @@ const ProductDetail = () => {
               <p className='flex items-center gap-2'><RiStairsFill /> Consegna al piano? Contattaci</p>
             </div>
           </div>
+
+          {/* Configuratore */}
+          <section>
+            <div className='my-10'>
+              <h3 className='font-semibold text-2xl'>Personalizza il tuo mobile</h3>
+              <p className='my-5 underline'>Seduta</p>
+              <img src={`http://localhost:8000/images_seat/${furniture.defaultSeatImage}`} alt="seduta" />
+              <p className='mt-5 underline'>Gambe</p>
+              <img src={`http://localhost:8000/images_legs/${furniture.defaultLegsImage}`} alt="gambe" />
+            </div>
+          </section>
+
           <div className='text-[#D6AE9E]'>
             <h3>Informazioni</h3>
             <p className='mt-2 text-sm text-[#8D8F8C]'>Materiale: {furniture.material}</p>
