@@ -15,6 +15,11 @@ import 'swiper/css/pagination';
 
 const ProductDetail = () => {
   const [furniture, setFurniture] = useState();
+  const [legs, setLegs] = useState([]);
+  const [seats, setSeats] = useState([]);
+  const [selectedSeatImage, setSelectedSeatImage] = useState(null);
+  const [selectedLegsImage, setSelectedLegsImage] = useState(null);
+
   const { furnitures } = useFurnitures();
 
   const navigate = useNavigate();
@@ -28,7 +33,19 @@ const ProductDetail = () => {
         setFurniture(data)
       })
       .catch((error) => console.error('Error fetching furniture:', error));
+
+    fetch(`http://localhost:8000/api/furniture-legs`)
+      .then((res) => res.json())
+      .then((data) => setLegs(data))
+
+    fetch(`http://localhost:8000/api/furniture-seats`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        setSeats(data)
+      })
   }, [id]);
+
 
   if (!furniture) {
     return (
@@ -46,6 +63,10 @@ const ProductDetail = () => {
 
   const relatedFurnitures = furnitures.filter((f) => f.category === furniture.category && f.id !== furniture.id);
 
+  const filteredSeats = seats.filter(seat => seat.furniture_id === furniture.id);
+  const filteredLegs = legs.filter(leg => leg.furniture_id === furniture.id);
+
+
   return (
     <div>
       <Navbar />
@@ -55,9 +76,33 @@ const ProductDetail = () => {
             <h1 className='text-3xl font-bold'>{furniture.name}</h1>
             <p className='font-thin'>{furniture.category}</p>
           </div>
-          <div>
-            <img src={`http://localhost:8000/${furniture.image}`} alt={furniture.name} className='w-[600px] h-auto object-contain my-6' />
+          <div className='relative w-[600px] h-[600px] mx-auto bg-[#222725] my-20'>
+            {/* immagine base */}
+            <img
+              src={`http://localhost:8000/${furniture.image}`}
+              alt={furniture.name}
+              className="absolute top-0 left-0 w-full h-full object-contain z-10 opacity-40"
+            />
+
+            {/* seduta selezionata */}
+            {selectedSeatImage && (
+              <img
+                src={`http://localhost:8000${selectedSeatImage}`}
+                alt="seduta"
+                className="absolute top-0 left-0 w-full h-full object-contain z-20"
+              />
+            )}
+
+            {/* gambe selezionate */}
+            {selectedLegsImage && (
+              <img
+                src={`http://localhost:8000${selectedLegsImage}`}
+                alt="gambe"
+                className="absolute top-0 left-0 w-full h-full object-contain z-30"
+              />
+            )}
           </div>
+
         </div>
         <div className='w-[20%]'>
           <p className='font-bold text-3xl flex justify-end text-[#5ED34F]'>{furniture.price} €</p>
@@ -73,15 +118,75 @@ const ProductDetail = () => {
           </div>
 
           {/* Configuratore */}
-          <section>
-            <div className='my-10'>
-              <h3 className='font-semibold text-2xl'>Personalizza il tuo mobile</h3>
-              <p className='my-5 underline'>Seduta</p>
-              <img src={`http://localhost:8000/images_seat/${furniture.defaultSeatImage}`} alt="seduta" />
-              <p className='mt-5 underline'>Gambe</p>
-              <img src={`http://localhost:8000/images_legs/${furniture.defaultLegsImage}`} alt="gambe" />
+          {(filteredSeats.length > 0 || filteredLegs.length > 0) ? (
+            <section className="my-10">
+              <h3 className="font-semibold text-2xl mb-4">Personalizza il tuo mobile</h3>
+              <div className="relative w-full max-w-[600px] mx-auto mb-6">
+
+                {/* seduta selezionata */}
+                {selectedSeatImage && (
+                  <img
+                    src={`http://localhost:8000${selectedSeatImage}`}
+                    alt="seduta"
+                    className="absolute top-0 left-0 w-full h-full object-contain z-20"
+                  />
+                )}
+
+                {/* gambe selezionate */}
+                {selectedLegsImage && (
+                  <img
+                    src={`http://localhost:8000${selectedLegsImage}`}
+                    alt="gambe"
+                    className="absolute top-0 left-0 w-full h-full object-contain z-30"
+                  />
+                )}
+              </div>
+
+              {/* Sedute */}
+              {filteredSeats.length > 0 && (
+                <div className="mt-6">
+                  <p className="mb-2 underline">Seduta</p>
+                  <div className="flex flex-wrap gap-2">
+                    {filteredSeats.map(seat => (
+                      <img
+                        key={seat.id}
+                        src={`http://localhost:8000${seat.image}`}
+                        alt={seat.name}
+                        onClick={() => setSelectedSeatImage(seat.image)}
+                        className={`w-16 h-16 object-contain border-2 rounded-md cursor-pointer bg-[#F0F1EF] ${selectedSeatImage === seat.image ? 'border-[#B4654A]' : 'border-gray-300'
+                          }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Gambe */}
+              {filteredLegs.length > 0 && (
+                <div className="mt-6">
+                  <p className="mb-2 underline">Gambe</p>
+                  <div className="flex flex-wrap gap-2">
+                    {filteredLegs.map(leg => (
+                      <img
+                        key={leg.id}
+                        src={`http://localhost:8000${leg.image}`}
+                        alt={leg.name}
+                        onClick={() => setSelectedLegsImage(leg.image)}
+                        className={`w-16 h-16 object-contain border-2 rounded-md cursor-pointer bg-[#F0F1EF] ${selectedLegsImage === leg.image ? 'border-[#B4654A]' : 'border-gray-300'
+                          }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </section>
+          ) : (
+            <div className="my-10 text-sm text-gray-500">
+              Questo mobile non è personalizzabile.
             </div>
-          </section>
+          )}
+
+
 
           <div className='text-[#D6AE9E]'>
             <h3>Informazioni</h3>
