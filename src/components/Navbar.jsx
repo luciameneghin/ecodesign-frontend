@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { LuShoppingCart } from "react-icons/lu";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ const Navbar = () => {
         <li><Link to='/prodotti' className="hover:text-[#5ED34F] transition text-white">Prodotti</Link></li>
         <li><Link to='/chi-siamo' className="hover:text-[#5ED34F] transition text-white">Chi siamo</Link></li>
         <li><Link to='/contatti' className="hover:text-[#5ED34F] transition text-white">Contatti</Link></li>
+        <li><Link to='/carrello' className="hover:text-[#5ED34F] transition text-white"><LuShoppingCart /></Link></li>
       </ul>
     </nav>
   )
