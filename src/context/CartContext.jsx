@@ -5,6 +5,7 @@ const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(true)
 
 
   const addToCart = (newItem) => {
@@ -22,13 +23,29 @@ const CartProvider = ({ children }) => {
     } else {
       setCart([...cart, { ...newItem, id, quantity: 1 }])
     }
+  }
+
+  const removeFromCart = (id) => {
+    setCart(cart.filter(item => item.id !== id))
+  }
+
+  const updateQuantity = (id, newQuantity) => {
+    if (newQuantity > 0) {
+      setCart(cart.map(item => {
+        return item.id === id ? { ...item, quantity: newQuantity } : item
+      }))
+    }
 
   }
 
   let values = {
     cart,
     setCart,
-    addToCart
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    isCartOpen,
+    setIsCartOpen
   }
 
   return (
