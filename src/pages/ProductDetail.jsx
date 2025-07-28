@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useFurnitures } from '../context/FurnituresContext'
 import { useNavigate, useParams } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
 import Navbar from '../components/Navbar'
 import Shipping from '../components/Shipping'
 import Footer from '../components/Footer'
@@ -8,6 +9,7 @@ import { FaHandshakeSimple } from "react-icons/fa6";
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
 import { IoBuild } from "react-icons/io5";
 import { RiStairsFill } from "react-icons/ri";
+import { LuShoppingCart } from "react-icons/lu";
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -19,8 +21,12 @@ const ProductDetail = () => {
   const [seats, setSeats] = useState([]);
   const [selectedSeatImage, setSelectedSeatImage] = useState(null);
   const [selectedLegsImage, setSelectedLegsImage] = useState(null);
+  const [selectedSeat, setSelectedSeat] = useState(null);
+  const [selectedLegs, setSelectedLegs] = useState(null);
+
 
   const { furnitures } = useFurnitures();
+  const { addToCart, setIsCartOpen } = useCart();
 
   const navigate = useNavigate();
 
@@ -65,6 +71,24 @@ const ProductDetail = () => {
 
   const filteredSeats = seats.filter(seat => seat.furniture_id === furniture.id);
   const filteredLegs = legs.filter(leg => leg.furniture_id === furniture.id);
+
+
+  const handleAddToCart = () => {
+    if (!furniture) return;
+
+    const newItem = {
+      furnitureId: furniture.id,
+      seatId: selectedSeat ? selectedSeat.id : null,
+      legsId: selectedLegs ? selectedLegs.id : null,
+      name: furniture.name,
+      unitPrice: furniture.price,
+      imageUrl: `http://localhost:8000/${furniture.image}`
+    };
+
+    addToCart(newItem);
+    setIsCartOpen(true);
+  };
+
 
 
   return (
@@ -152,7 +176,11 @@ const ProductDetail = () => {
                         key={seat.id}
                         src={`http://localhost:8000${seat.image}`}
                         alt={seat.name}
-                        onClick={() => setSelectedSeatImage(seat.image)}
+                        onClick={() => {
+                          setSelectedSeatImage(seat.image)
+                          setSelectedSeat(seat)
+                        }}
+
                         className={`w-16 h-16 object-contain border-2 rounded-md cursor-pointer bg-[#F0F1EF] ${selectedSeatImage === seat.image ? 'border-[#B4654A]' : 'border-gray-300'
                           }`}
                       />
@@ -171,7 +199,11 @@ const ProductDetail = () => {
                         key={leg.id}
                         src={`http://localhost:8000${leg.image}`}
                         alt={leg.name}
-                        onClick={() => setSelectedLegsImage(leg.image)}
+                        onClick={() => {
+                          setSelectedLegsImage(leg.image)
+                          setSelectedLegs(leg)
+                        }}
+
                         className={`w-16 h-16 object-contain border-2 rounded-md cursor-pointer bg-[#F0F1EF] ${selectedLegsImage === leg.image ? 'border-[#B4654A]' : 'border-gray-300'
                           }`}
                       />
@@ -195,6 +227,11 @@ const ProductDetail = () => {
             <p className='text-sm text-[#8D8F8C] capitalize'>Categoria: {furniture.category}</p>
             <p className='text-sm text-[#8D8F8C]'>Per esterni: {furniture.outdoor ? 'Sì' : 'No'}</p>
 
+          </div>
+
+          <div className='pt-10'>
+            <button className='btn border border-[#8D8F8C] rounded-3xl bg-[#5ed34f] text-white p-5 flex items-center'
+              onClick={handleAddToCart}><LuShoppingCart className='mr-2 ' />Aggiungi al Carrello</button>
           </div>
         </div>
       </div>

@@ -34,6 +34,9 @@ const CartSidebar = () => {
             ) : (
               cart.map(item => (
                 <div key={item.id} className="border-b pb-3 mb-3">
+                  <div className=''>
+                    <img src={item.imageUrl} alt={item.name} style={{ 'height': '100px' }} />
+                  </div>
                   <p className="font-medium">{item.name}</p>
                   <p className="text-sm text-gray-600">Prezzo: € {item.unitPrice}</p>
                   <div className="flex items-center gap-2 mt-1">
