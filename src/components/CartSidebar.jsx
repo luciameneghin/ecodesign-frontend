@@ -16,7 +16,7 @@ const CartSidebar = () => {
       {isCartOpen && (
         <div
           className="fixed top-0 left-0 w-full h-full bg-black/50 z-40"
-          onClick={() => setIsCartOpen(false)}
+          onClick={() => setIsCartOpen(true)}
         />
       )}
 
@@ -45,6 +45,9 @@ const CartSidebar = () => {
                     <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="px-2 bg-gray-200 rounded">＋</button>
                     <button onClick={() => removeFromCart(item.id)} className="ml-auto text-red-500">Rimuovi</button>
                   </div>
+                  {/* <div>
+                    <button className='btn' onClick={}>Vai al Checkout</button>
+                  </div> */}
                 </div>
               ))
             )}

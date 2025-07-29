@@ -5,7 +5,7 @@ const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(true)
+  const [isCartOpen, setIsCartOpen] = useState(false)
 
 
   const addToCart = (newItem) => {
