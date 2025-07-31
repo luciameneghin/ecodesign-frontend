@@ -5,6 +5,7 @@ import Checkout from './pages/Checkout';
 import FurnituresProvider from './context/FurnituresContext';
 import CartProvider from './context/CartContext';
 import CartSidebar from './components/CartSidebar';
+import ProductsPage from './pages/ProductsPage';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/furniture/:id' element={<ProductDetail />} />
+            <Route path='/prodotti' element={<ProductsPage />} />
             <Route path='/checkout' element={<Checkout />} />
           </Routes>
           <CartSidebar />
